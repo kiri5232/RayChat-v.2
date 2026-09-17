@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>RayChat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background-glow"></div>
+
+<!-- Cinematic landing -->
+<div class="landing" id="landing">
+
+  <video
+    class="landing-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src="raychat-hero.mp4" type="video/mp4">
+  </video>
+
+  <div class="landing-overlay"></div>
+
+  <div class="landing-content">
+
+    <h1 class="wordmark" aria-label="RayChat">
+      <span>R</span><span>A</span><span>Y</span><span>C</span><span>H</span><span>A</span><span>T</span>
+    </h1>
+
+    <p class="landing-tagline">Connect. Talk. In real time.</p>
+
+    <button class="enter-btn" id="enterBtn">
+      <span>Enter RayChat</span>
+      <svg class="enter-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+  </div>
+
+</div>
+
+<!-- Main app -->
+<div class="app" id="app">
+
+  <header class="header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>RayChat</span>
+    </div>
+    <p class="tagline">Realtime chat, no waiting room.</p>
+  </header>
+
+  <!-- Setup Screen -->
+  <section class="setup-card" id="setupCard">
+
+    <h2>Join a room</h2>
+    <p class="setup-sub">Pick a name, drop a room code, start talking.</p>
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Username (Rayzen, Aero...)"
+        maxlength="20"
+        autocomplete="off"
+    >
+
+    <input
+        type="text"
+        id="roomCode"
+        placeholder="Room code (RAY-71)"
+        maxlength="20"
+        autocomplete="off"
+    >
+
+    <button id="joinBtn">
+      <span>Enter Room</span>
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+  </section>
+
+  <!-- Chat Screen -->
+  <section class="chat-card hidden" id="chatCard">
+
+    <div class="chat-topbar">
+      <div class="chat-room-info">
+        <span class="room-name" id="roomDisplay">Room ---</span>
+        <span class="presence-count" id="presenceCount"><span class="dot-online"></span>online</span>
+      </div>
+      <button class="leave-btn" id="leaveBtn" title="Leave room" aria-label="Leave room">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180 8 8)"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="messages-wrap">
+
+      <div class="messages" id="messages">
+        <!-- Messages appear here -->
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        <p class="empty-title">Start a conversation.</p>
+        <p class="empty-sub">Real-time conversations, made simple.</p>
+      </div>
+
+    </div>
+
+    <div class="typing-indicator hidden" id="typingIndicator">
+      <span id="typingText">Someone is typing</span>
+      <span class="typing-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+
+    <button class="jump-latest hidden" id="jumpLatest" type="button">
+      New messages ↓
+    </button>
+
+    <div class="message-box">
+
+      <input
+          type="text"
+          id="messageInput"
+          placeholder="Type your message..."
+          autocomplete="off"
+      >
+
+      <button id="sendBtn" aria-label="Send message">
+        <svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
+  
